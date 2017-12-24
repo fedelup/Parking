@@ -223,7 +223,8 @@ public class ControllerClass {
 	}		
 
 	@ResponseBody
-	@RequestMapping(value="/home", method=RequestMethod.GET)
+	String var="home";	//FIX
+	@RequestMapping(value=var, method=RequestMethod.GET)
 	public ModelAndView homePage() {
 		modelAndView.setViewName("index");
 		return modelAndView;
@@ -259,17 +260,16 @@ public class ControllerClass {
 			Cookie c = new Cookie("name", "");
 			c.setMaxAge(0);
 
-			System.gc();
 			System.out.println("logout");					
 		} catch (NullPointerException e) { 
 			Cookie c = new Cookie("name", "");
 			c.setMaxAge(0);
-			System.gc();
+			
 			System.out.println("logout");		
 		} catch (Exception e) {
 			Cookie c = new Cookie("name", "");
 			c.setMaxAge(0);
-			System.gc();
+			
 			System.out.println("logout");		
 		}
         return "redirect:/";
@@ -294,5 +294,6 @@ public class ControllerClass {
 	public void destroy() throws Exception {
 		System.out.println("\n**   Spring F/M Destroying(Closed) invoking by destroy method..   **\n");
 	}
+	//PROVA PROVA VERA
 
 }
