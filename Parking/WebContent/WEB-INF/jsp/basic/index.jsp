@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<%--
+-- Descrizione: Questa pagina contiene informazioni sulla HomePage
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+	
 		<title>Home Page</title>
 		
 		<jsp:include page="/link.jsp" />
@@ -13,7 +22,7 @@
    		 			var options = {
 						  componentRestrictions: {country: "ind"}
    		 			};
-    				autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchPlace'),options);
+    				var autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchPlace'),options);
 	   				autocomplete.addListener('place_changed', fillInAddress);
     			});
    			});
@@ -21,9 +30,12 @@
 			function fillInAddress() {
 		        //Get the place details from the autocomplete object.
 				var place = autocomplete.getPlace();
+				 <!-- fixed -->
+		        DefaultHTTPUtilities utilities=new DefaultHTTPUtilities();
 		        var loc = document.getElementById('searchPlace').value;
+		        utilities.sendRedirect(url);
 		       	var lat = place.geometry.location.lat(), lng = place.geometry.location.lng();	       	
-	       		window.location = "/Parking/Check.basic?loc="+loc+"&lat=" + lat + "&lng=" + lng;
+	       		window.location = "/Parking/Check.basic?loc="+ utilities.sendRedirect(url);+"&lat=" + lat + "&lng=" + lng;
 	       	//	alert(place.geometry.location.lat()+"  "+place.geometry.location.lng());	       		
 			}
 

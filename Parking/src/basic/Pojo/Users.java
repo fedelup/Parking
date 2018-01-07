@@ -3,13 +3,30 @@ package basic.Pojo;
 import java.io.Serializable;
 
 //prova commento per commit
-public class Users implements Serializable, Cloneable
+/**
+ * 
+ * @author user
+ *
+ */
+public class Users implements Cloneable
 {
-	private String fname, lname, gender, username, password, dob, area, state, city, country, usertype;
-	private int id, pincode;
-	float latitude, longitude;
+	private String fname;
+	private String lname;
+	private String gender;
+	private String username;
+	private String password;
+	private String dob;
+	private String area;
+	private String state;
+	private String city;
+	private String country;
+	private String usertype;
+	private int id;
+	private int pincode;
+	private float latitude;
+	private float longitude;
 	
-	public Object clone() throws CloneNotSupportedException{
+	public final Users clone() throws CloneNotSupportedException{
 		return super.clone();
 	}
 
@@ -105,10 +122,6 @@ public class Users implements Serializable, Cloneable
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public int getPincode() {
 		return pincode;
 	}
@@ -152,6 +165,7 @@ public class Users implements Serializable, Cloneable
 		this.pincode = pincode;
 		this.latitude = latitude;
 		this.longitude = longitude;
+	    this.unique = id;
 	}
 
 	public Users() {
@@ -171,6 +185,7 @@ public class Users implements Serializable, Cloneable
 		this.pincode = 0;
 		this.latitude = 0.0f;
 		this.longitude = 0.0f;
+		this.unique = id;
 	}
 
 	@Override
@@ -185,8 +200,8 @@ public class Users implements Serializable, Cloneable
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		
-		result = prime * result + getId();		
+	
+		result = prime * result + unique;		
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((usertype == null) ? 0 : usertype.hashCode());
@@ -195,28 +210,20 @@ public class Users implements Serializable, Cloneable
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (obj == null) 
+			{return false;}
+		if (getClass() != obj.getClass()) 
+			{return false;}
 		Users other = (Users) obj;
-		if (area == null) {
-			if (other.area != null)
-				return false;
-		} 
 		if (username == null) {
-			if (other.username != null)
-				return false;
+			if (other.username != null) 
+				{return false;}
 		} else if (!username.equals(other.username))
-			return false;
-		if (usertype == null) {
-			if (other.usertype != null)
-				return false;
-		} else if (!usertype.equals(other.usertype))
-			return false;
-		return true;
+			{return false;}
+		if ((usertype == null && other.usertype != null))
+			{return false;}
+		return (usertype.equals(other.usertype)); // da togliere eventualmente
+
 	}
 	
 }
