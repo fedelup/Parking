@@ -22,6 +22,8 @@
 					return r;
 				case "Array":
 					return e.slice();
+				case default:
+					break;
 				}
 				return e;
 			}
@@ -128,9 +130,7 @@
 				delete n.rest;
 			}
 			e: for ( var u in n) {
-				if (!n.hasOwnProperty(u) || !n[u]){
-					continue;
-				}
+				
 				var a = n[u], f = a.inside, l = !!a.lookbehind, c = 0;
 				a = a.pattern || a;
 				for (var h = 0; h < s.length; h++) {
@@ -138,9 +138,7 @@
 					if (s.length > e.length){
 						break e;
 					}
-					if (p instanceof i){
-						continue;
-					}
+					
 					a.lastIndex = 0;
 					var d = a.exec(p);
 					if (d) {

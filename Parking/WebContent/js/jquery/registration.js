@@ -128,7 +128,7 @@ $(document).ready(function() {
    i++; 
 });
   $("#delete_row").click(function(){
- 	 if(i>1){
+ 	 if(i > 1){
 		 $("#addr"+(i-1)).html('');
 		 i--;
 		 }

@@ -15,7 +15,7 @@
     		</div>
   		</div>
 	</div>
-
+    <%-- row contentlist --%>
 	<div class="row contentList">
 		<div class="container">
 		<div class="row">
@@ -83,7 +83,7 @@
                 </div>
                 <hr>
 
-
+                <%-- row --%>
                 <div class="row"> 
                     <div class="col-xs-6 col-sm-2 col-md-2">
                         <a href="#">
