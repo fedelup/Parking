@@ -25,7 +25,7 @@
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.		
 		if(global.document){ 
-			factory( global, true )} else{
+			factory( global, true );} else{
 			function toW( w ) {
 				if ( !w.document ) {
 					throw new Error( "jQuery requires a window with a document" );
@@ -135,7 +135,7 @@ jQuery.fn = jQuery.prototype = {
 		}
 
 		// Return just the one element from the set
-		 if(num < 0)  {return this[ num + this.length ]} else {return this[ num ];}
+		 if(num < 0)  {return this[ num + this.length ];} else {return this[ num ];}
 	},
 
 	// Take an array of elements and push it onto the stack
@@ -178,8 +178,8 @@ jQuery.fn = jQuery.prototype = {
 	eq: function( i ) {
 		var len = this.length,
 		 j = 0; 
-		     if( i < 0)  { j = +i +len} else { j = +i +0;}
-			 if(j >= 0 && j < len)  {return this.pushStack([ this[ j ] ])} else {return this.pushStack([])}		  
+		     if( i < 0)  { j = +i +len;} else { j = +i +0;}
+			 if(j >= 0 && j < len)  {return this.pushStack([ this[ j ] ]);} else {return this.pushStack([]);}		  
 	},
 	
 	end: function() {
@@ -241,10 +241,10 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 					if ( copyIsArray ) {
 						copyIsArray = false;
-						 if(src && jQuery.isArray( src ))  {clone = src} else {clone =[]};
+						 if(src && jQuery.isArray( src ))  {clone = src;} else {clone =[];}
 
 					} else {
-						 if(src && jQuery.isPlainObject( src )) {clone = src} else {clone = {};}
+						 if(src && jQuery.isPlainObject( src )) {clone = src;} else {clone = {};}
 					}
 
 					// Never move original objects, clone them
@@ -384,7 +384,7 @@ jQuery.extend( {
 	// Support: Android <=4.0 only
 	trim: function( text ) {
 		 if(text === null) 
-			 {return "" }else{
+			 {return "" ;}else{
 			( text + "" ).replace( rtrim, "" );}
 	},
 
@@ -407,7 +407,7 @@ jQuery.extend( {
 	},
 
 	inArray: function( elem, arr, i ) {
-		if(arr === null) {return -1} else {indexOf.call( arr, elem, i );}
+		if(arr === null) {return -1;} else {indexOf.call( arr, elem, i );}
 	},
 
 	// Support: Android <=4.0 only, PhantomJS 1 only
@@ -688,10 +688,10 @@ var i,
 		// Support: Firefox<24
 		// Workaround erroneous numeric interpretation of +"0x"
 		 if(high !== high || escapedWhitespace)
-				 {return escaped }else{
+				 {return escaped;}else{
 			if(high < 0) {
 				// BMP codepoint
-					return String.fromCharCode( high + 0x10000 ) }else {
+					return String.fromCharCode( high + 0x10000 ); }else {
 				// Supplemental Plane codepoint (surrogate pair)
 						return String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );}}
 	},
@@ -764,7 +764,7 @@ function Sizzle( selector, context, results, seed ) {
 		newContext = context && context.ownerDocument,
 	    nodeType = 0;
 		// nodeType defaults to 9, since context defaults to document
-		 if(context)  {nodeType =context.nodeType} else  {nodeType = 9};
+		 if(context)  {nodeType =context.nodeType;} else  {nodeType = 9;}
 
 	results = results || [];
 
@@ -981,7 +981,7 @@ function siblingCheck( a, b ) {
 		}
 	}
 
-	 if(a) {return 1} else {return -1};
+	 if(a) {return 1;} else {return -1;}
 }
 
 /**
@@ -1116,7 +1116,7 @@ isXML = Sizzle.isXML = function( elem ) {
 setDocument = Sizzle.setDocument = function( node ) {
 	var hasCompare, subWindow,
 	doc;
-		 if(node) {doc = node.ownerDocument || node} else {doc = preferredDoc};
+		 if(node) {doc = node.ownerDocument || node} else {doc = preferredDoc;}
 
 	// Return early if doc is invalid or already selected
 	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
@@ -1186,7 +1186,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		Expr.find["ID"] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var elem = context.getElementById( id );
-				 if(elem)  {return[ elem ]} else {return []};
+				 if(elem)  {return[ elem ];} else {return [];}
 			}
 		};
 	} else {
@@ -1397,7 +1397,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// As in, an element does not contain itself
 	 if(hasCompare || rnative.test( docElem.contains )) 
 		{contains =function( a, b ) {
-			 if(a.nodeType === 9)  {var adown =a.documentElement} {var adown = a}
+			 if(a.nodeType === 9)  {var adown =a.documentElement;} {var adown = a;}
 				var bup = b && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
@@ -1456,11 +1456,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Maintain original order
 			 if(sortInput)
-				{return( indexOf( sortInput, a ) - indexOf( sortInput, b ) )} else{
+				{return( indexOf( sortInput, a ) - indexOf( sortInput, b ) );} else{
 				return 0;}
 		}
 
-		if(compare & 4)  {return -1} else {return  1;};
+		if(compare & 4)  {return -1;} else {return  1;}
 	}} else {
 		sortOrder = function( a, b ) {
 		// Exit early if the nodes are identical
@@ -1478,12 +1478,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Parentless nodes are either documents or disconnected
 		if ( !aup || !bup ) {
-			 if(a === document) {return -1} else{
-				if (b === document ) {return 1} else{
-				if (aup) {return -1} else{
-				if(bup)  {return 1} else{
+			 if(a === document) {return -1;} else{
+				if (b === document ) {return 1;} else{
+				if (aup) {return -1;} else{
+				if(bup)  {return 1;} else{
 				if(sortInput) {
-				( indexOf( sortInput, a ) - indexOf( sortInput, b ) )} else{
+				( indexOf( sortInput, a ) - indexOf( sortInput, b ) );} else{
 				return 0;}}}}}
 
 		// If the nodes are siblings, we can do a quick check
@@ -2155,7 +2155,7 @@ Expr = Sizzle.selectors = {
 
 		"lt": createPositionalPseudo(function( matchIndexes, length, argument ) {
 			var i = argument < 0 ? argument + length : argument;
-			for ( ; --i >= 0; ) {
+			for ( ; i >= 0; i -= 1) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
@@ -5147,7 +5147,7 @@ jQuery.event = {
 					handlers.splice( j, 1 );
 
 					if ( handleObj.selector ) {
-						handlers.delegateCount--;
+						handlers.delegateCount=handlers.delegateCount-1;
 					}
 					if ( special.remove ) {
 						special.remove.call( elem, handleObj );
